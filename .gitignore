@@ -1,0 +1,64 @@
+# ==========================================
+# CodeMind AI - Git Ignore Configuration
+# ==========================================
+
+# Environment variables & secrets (STRICT - NEVER COMMIT)
+.env
+.env.*
+*.env.local
+!.env.example
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Testing & Type Checking caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+htmlcov/
+coverage.xml
+
+# Build & Distribution artifacts
+dist/
+build/
+*.egg-info/
+*.egg
+eggs/
+.eggs/
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific temporary files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Logs & Temporary files
+*.log
+*.tmp
+*.bak
+scratch/
