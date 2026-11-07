@@ -22,27 +22,6 @@
 
 ---
 
-## 📖 Table of Contents
-
-- [Project Overview](#-project-overview)
-- [Problem Statement](#-problem-statement)
-- [Our Solution](#-our-solution)
-- [Key Features](#-key-features)
-- [System Architecture](#-system-architecture)
-- [Workflow Infographic](#-workflow-infographic)
-- [Technology Stack](#-technology-stack)
-- [Project Structure](#-project-structure)
-- [Installation and Setup](#-installation-and-setup)
-- [Running the Application](#-running-the-application)
-- [Screenshots and Demo](#-screenshots-and-demo)
-- [Testing & Quality Assurance](#-testing--quality-assurance)
-- [Future Enhancements](#-future-enhancements)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Author](#-author)
-
----
-
 ## 🌟 Project Overview
 
 **CodeMind AI** is an intelligent, memory-augmented Python code review assistant built for the modern software engineering lifecycle. Unlike generic static linters or stateless LLM wrappers that forget conversations the moment they finish, CodeMind AI integrates **Vectorize Hindsight** as an intelligent memory substrate.
@@ -322,7 +301,7 @@ Now open **[http://127.0.0.1:8000](http://127.0.0.1:8000)** in your browser!
 Watch the live demonstration of CodeMind AI learning from developer feedback in real time:  
 👉 **[Click to Watch Demo Video](https://drive.google.com/file/d/1riVFCIrQ_NzEkjD64WW1W9qYI7m4pC7J/view?usp=sharing)**
 
-### 🖥️ Application Interface
+### 📌📍📍🖥️ Application Interface
 ![CodeMind Review Interface](assets/demo.png)
 
 ---
@@ -385,9 +364,8 @@ Contributions are welcome! Please review our [Contributing Guide](CONTRIBUTING.m
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
 ---
-
-## 👤 Author
-
-**Dharshini R**  
-- **GitHub:** [@rdharshinir](https://github.com/rdharshinir)  
-- **Repository:** [https://github.com/rdharshinir/CodeMind-AI](https://github.com/rdharshinir/CodeMind-AI)
+By Team ,
+DHARSHIKA
+DHARSHINI
+SHOBIK
+SHUDHARSHAN
