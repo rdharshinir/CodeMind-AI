@@ -126,8 +126,8 @@
 </header>
 
 <div class="tabs">
-  <div class="tab active" data-tab="review">🔍 Review</div>
-  <div class="tab" data-tab="memory">🧠 Memory Inspector</div>
+  <div class="tab active" data-tab="review"> Review</div>
+  <div class="tab" data-tab="memory"> Memory Inspector</div>
 </div>
 
 <!-- ===================== REVIEW TAB ===================== -->
@@ -135,12 +135,12 @@
   <!-- Left: Code Input -->
   <div class="panel" style="border-right:1px solid var(--border);">
     <div class="panel-header">
-      📝 Source Code
+       Source Code
       <span id="line-count" style="margin-left:auto;font-size:0.72rem;"></span>
     </div>
     <textarea id="code-editor" placeholder="# Paste Python code here or upload a .py file…" spellcheck="false"></textarea>
     <div class="toolbar">
-      <label class="upload-label" for="file-upload">📂 Upload .py</label>
+      <label class="upload-label" for="file-upload"> Upload .py</label>
       <input type="file" id="file-upload" accept=".py" />
       <button class="btn btn-secondary" onclick="clearEditor()">Clear</button>
       <button class="btn btn-secondary" onclick="loadDemo()">Load Demo</button>
@@ -168,7 +168,7 @@
 <div id="tab-memory" class="workspace" style="display:none;">
   <div style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
     <div class="panel-header">
-      🧠 Hindsight Memory Inspector
+       Hindsight Memory Inspector
       <button class="btn btn-secondary" style="margin-left:auto;padding:4px 10px;font-size:0.75rem;" onclick="loadMemory()">🔄 Refresh</button>
     </div>
     <div id="memory-view">
@@ -252,7 +252,7 @@ document.getElementById('file-upload').addEventListener('change', async (e) => {
   if (!file) return;
   editor.value = await file.text();
   editor.dispatchEvent(new Event('input'));
-  toast(`📂 Loaded: ${file.name}`);
+  toast(` Loaded: ${file.name}`);
 });
 
 // ---- Review ----
@@ -260,7 +260,7 @@ let lastIssues = [];
 
 async function runReview() {
   const code = editor.value.trim();
-  if (!code) { toast('⚠️ Please paste or upload code first.', 'warn'); return; }
+  if (!code) { toast(' Please paste or upload code first.', 'warn'); return; }
 
   const btn = document.getElementById('review-btn');
   btn.disabled = true;
@@ -290,7 +290,7 @@ async function runReview() {
     toast('Review failed: ' + err.message, 'error');
   } finally {
     btn.disabled = false;
-    btn.innerHTML = '▶ Review Code';
+    btn.innerHTML = ' Review Code';
   }
 }
 
@@ -301,14 +301,14 @@ function renderResults(data) {
   // Summary
   const summaryEl = document.createElement('div');
   summaryEl.className = 'summary-bar';
-  summaryEl.innerHTML = `<strong>📋 ${data.filename}</strong> — ${data.total_lines} lines | ${data.issues.length} issues<br/><span style="margin-top:4px;display:block;">${data.summary}</span>`;
+  summaryEl.innerHTML = `<strong> ${data.filename}</strong> — ${data.total_lines} lines | ${data.issues.length} issues<br/><span style="margin-top:4px;display:block;">${data.summary}</span>`;
   panel.appendChild(summaryEl);
 
   // Memory used notice
   if (data.memories_recalled && !data.memories_recalled.includes('No prior conventions')) {
     const memNote = document.createElement('div');
     memNote.style.cssText = 'font-size:0.75rem;color:var(--accent);background:rgba(88,166,255,.08);border:1px solid rgba(88,166,255,.2);border-radius:6px;padding:8px 12px;';
-    memNote.textContent = '🧠 Hindsight memory was recalled and applied to this review.';
+    memNote.textContent = ' Hindsight memory was recalled and applied to this review.';
     panel.appendChild(memNote);
   }
 
@@ -316,7 +316,7 @@ function renderResults(data) {
     const none = document.createElement('div');
     none.className = 'summary-bar';
     none.style.textAlign = 'center';
-    none.innerHTML = '✅ <strong>No issues detected!</strong> Great code.';
+    none.innerHTML = ' <strong>No issues detected!</strong> Great code.';
     panel.appendChild(none);
     return;
   }
@@ -340,13 +340,13 @@ function createIssueCard(issue, allIssues) {
       <span style="color:var(--text-muted);margin-left:4px;">▾</span>
     </div>
     <div class="issue-body">
-      ${issue.memory_applied ? `<div class="memory-tag">🧠 Applied memory: ${esc(issue.memory_applied.slice(0,120))}</div>` : ''}
+      ${issue.memory_applied ? `<div class="memory-tag"> Applied memory: ${esc(issue.memory_applied.slice(0,120))}</div>` : ''}
       <p>${esc(issue.explanation)}</p>
       ${issue.suggestion ? `<pre>${esc(issue.suggestion)}</pre>` : ''}
       <div class="feedback-row">
         <input type="text" class="reason-input" placeholder="Optional: reason for decision…" id="reason-${issue.id}" />
-        <button class="btn btn-success" onclick="sendFeedback('${issue.id}', 'accept')">✅ Accept</button>
-        <button class="btn btn-danger" onclick="sendFeedback('${issue.id}', 'reject')">🚫 Reject</button>
+        <button class="btn btn-success" onclick="sendFeedback('${issue.id}', 'accept')"> Accept</button>
+        <button class="btn btn-danger" onclick="sendFeedback('${issue.id}', 'reject')"> Reject</button>
       </div>
       <div class="feedback-sent" id="feedback-sent-${issue.id}"></div>
     </div>
@@ -377,7 +377,7 @@ async function sendFeedback(issueId, decision) {
     sentEl.textContent = d.message;
     toast(d.message);
   } catch (err) {
-    sentEl.textContent = '❌ Failed to save.';
+    sentEl.textContent = ' Failed to save.';
   }
 }
 
@@ -400,22 +400,22 @@ async function loadMemory() {
     view.innerHTML = '';
 
     // Team profile
-    addMemSection(view, '🧠 Synthesized Team Profile (Reflect)', d.team_profile || 'No profile yet.', true);
-    addMemSection(view, '✅ Conventions & Accepted Rules', d.conventions || 'None stored yet.');
-    addMemSection(view, '🚫 Active Guardrails (Rejected Suggestions)', d.guardrails || 'No guardrails stored yet.');
+    addMemSection(view, ' Synthesized Team Profile (Reflect)', d.team_profile || 'No profile yet.', true);
+    addMemSection(view, ' Conventions & Accepted Rules', d.conventions || 'None stored yet.');
+    addMemSection(view, ' Active Guardrails (Rejected Suggestions)', d.guardrails || 'No guardrails stored yet.');
 
     // History
     const history = d.review_history || [];
     const histSection = document.createElement('div');
     histSection.className = 'mem-section';
-    histSection.innerHTML = `<div class="mem-section-title">📜 Review History (${history.length} sessions)</div>
+    histSection.innerHTML = `<div class="mem-section-title"> Review History (${history.length} sessions)</div>
       <div class="mem-content">${history.length ? history.map((h,i) => `[${i+1}] ${esc(h)}`).join('\n\n') : 'No review sessions yet.'}</div>`;
     view.appendChild(histSection);
 
     // Add custom rule
     const addSection = document.createElement('div');
     addSection.className = 'mem-section';
-    addSection.innerHTML = `<div class="mem-section-title">➕ Add Team Convention</div>
+    addSection.innerHTML = `<div class="mem-section-title">Add Team Convention</div>
       <div class="add-rule-row">
         <input type="text" class="add-rule-input" id="new-rule-input" placeholder="e.g. Never use print() in production code — use logging instead." />
         <button class="btn btn-primary" onclick="addConvention()">Add Rule</button>
@@ -447,11 +447,11 @@ async function addConvention() {
       body: JSON.stringify({ rule }),
     });
     const d = await res.json();
-    toast('✅ ' + d.message);
+    toast(' ' + d.message);
     input.value = '';
     setTimeout(loadMemory, 1500);
   } catch (err) {
-    toast('❌ Failed: ' + err.message, 'error');
+    toast(' Failed: ' + err.message, 'error');
   }
 }
 
